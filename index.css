@@ -1,0 +1,139 @@
+:root{
+    --pri:black;
+    --sec:#ffff;
+    --tri:blue;
+}
+@font-face {
+    font-family: normal;
+    src: url(./fonts/fonnts.com-Aeonik-Regular.ttf);
+}
+@font-face {
+    font-family: bold;
+    src: url(./fonts/fonnts.com-Aeonik-Bold.ttf);
+}
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: normal;
+}
+html, body{
+    width: 100%;
+    height: 100%;
+    background-color: var(--pri);
+}
+body{
+    padding: 0.8rem;
+}
+#main{
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+h1{
+    font-family: normal;
+    color: var(--sec);
+}
+nav{
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    justify-content: space-between;
+    background-color: var(--pri);
+    color: var(--sec);
+    border-bottom: 3px solid white;
+    margin: 0 auto;
+    margin-top: 1rem;
+    padding-bottom: 1.2rem;
+}
+.logo{
+    display: flex;
+    border-bottom: 2px solid white;
+    border-right: 2px solid white;
+    border-radius: 10px;
+    padding: 0.4rem;
+}
+.logo img{
+    height: 30px;
+}
+.theme{
+    display: flex;
+    background: linear-gradient(45deg, purple, lightpink);
+    align-items: center;
+    border-radius: 20px;
+    padding: 0.4rem;
+    gap: 0.4rem;
+    font-size: 0.9rem;
+}
+.theme:active{
+    transform: scale(0.9);
+}
+.allElem{
+    color: var(--sec);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 2rem;
+    transition: all 0.5s ease-in-out;
+}
+.todo{
+    border-radius: 20px;
+    max-width: 237px;
+    font-size: 1.2rem;
+    height: 18rem;
+    margin: 0 auto;
+    position: relative;
+    box-shadow: 0 4px 20px gray;
+    transition: all 0.2s ease-in-out;
+}
+.todo img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    min-width: 234px;
+}
+.todo h4{
+    position: absolute;
+    bottom: 10%;
+    padding: 0.6rem;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.9), /* Glow effect */
+                 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+.todo p{
+    position: absolute;
+    bottom: 5%;
+    font-size: 0.7rem;
+    padding: 0.6rem;
+    opacity: 0.8;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8),
+                 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+.todo:active{
+    transform: scale(0.9);
+}
+.fullElem{
+    width: 100%;
+    height: 100%;
+    padding: 1rem;
+    font-size: 3rem;
+    display: none;
+}
+@media (min-width:600px) {
+    .allElem{
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+@media (min-width:900px) {
+    .allElem{
+        grid-template-columns: repeat(3,1fr);
+    }
+}
+@media (min-width:1200px) {
+    .allElem{
+        grid-template-columns: repeat(4,1fr);
+    }
+}

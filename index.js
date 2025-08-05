@@ -1,6 +1,7 @@
 var todoItems = document.querySelectorAll('.todo')
 var fullElem = document.querySelectorAll('.fullElem')
 var allElem = document.querySelector('.allElem') // Main grid section
+var bac = document.querySelectorAll('.fullElem .back')
 
 todoItems.forEach(function(elem){
     elem.addEventListener('click', function(){
@@ -14,6 +15,12 @@ todoItems.forEach(function(elem){
         
         // Selected fullElem show karo
         fullElem[parseInt(elem.id)].style.display = 'block'
+    })
+})
+bac.forEach(function(back){
+    back.addEventListener('click', function(){
+        fullElem[back.id].style.display='none'
+        allElem.style.display = 'grid'
     })
 })
 

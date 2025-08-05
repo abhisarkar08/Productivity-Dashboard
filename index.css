@@ -90,8 +90,13 @@ nav{
     box-shadow: 0 4px 20px gray;
     transition: all 0.2s ease-in-out;
     cursor: pointer;
+    overflow: hidden;
+}
+.todo:hover img{
+    transform: scale(1.1);
 }
 .todo img{
+    transition: all 0.2s ease-in;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -168,12 +173,111 @@ nav{
 .back:active{
     transform: scale(0.9);
 }
+.type{
+    margin-top: 2rem;
+    text-align: center;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: center;
+}
+.in{
+    background-color: transparent;
+    box-shadow: 0 0 0 0.5px white;
+    border: none;
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    border-radius: 5px;
+    width: 60%;
+    color: var(--sec);
+    max-width: 772px;
+}
+.task{
+    padding: 1rem;
+    background-color: red;
+    border: none;
+    color: var(--sec);
+    border-radius: 5px;
+    padding: 0.4rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family:normal;
+    cursor: pointer;
+}
+.contain{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 0 0.5px white;
+    margin-top: 2rem;
+    max-width: 896px;
+    justify-content: center;
+    margin: 2rem auto 0 auto;
+}
+.pending, .completed{
+    padding: 1.6rem;
+    border-bottom: 1px solid white;
+    text-align: center;
+}
+.pending h2{
+    color: var(--tri);
+    margin-bottom: 1.2rem;
+}
+.pending p , .completed p{
+    opacity: 0.6;
+    color: white;
+}
+.completed h2{
+    color: green;
+    margin-bottom: 1.2rem;
+}
+.show, .shows{
+    color: var(--sec);
+    display: grid;
+    grid-template-columns: 1fr auto auto; /* 3 columns: text, checkbox, icon */
+    gap: 1rem;
+    border-bottom: 1px dashed white;
+    align-items: center;
+}
+.show h3{
+    padding: 0.6rem;
+    text-align: left;
+}
+.shows h3{
+    padding: 0.6rem;
+    text-align: left;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+#ok{
+    transform: scale(1.7);
+}
+.checko{
+    display: flex;
+    gap: 0.5rem;
+}
+.bo{
+    color: var(--tri);
+    cursor: pointer;
+}
 @media (min-width:600px) {
     .allElem{
         grid-template-columns: repeat(2,1fr);
     }
     .head h1{
         font-size: 2.1rem;
+    }
+}
+@media (min-width:750px) {
+    .contain{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+    .pending, .completed{
+        text-align: center;
+        box-shadow: none;
+        border: none;
+    }
+    .pending{
+        border-right: 1px solid rgba(255, 255, 255, 0.5);
     }
 }
 @media (min-width:900px) {

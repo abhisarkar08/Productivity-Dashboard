@@ -258,6 +258,60 @@ nav{
     color: var(--tri);
     cursor: pointer;
 }
+.day-palnner{
+    width: 100%;
+    padding: 0.2rem;
+    margin-top: 3rem;
+}
+.day-time p{
+    font-size: 0.7rem;
+    line-height: 1.8;
+    font-weight: 600;
+}
+.enter{
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid white;
+    padding: 0.7rem;
+    max-width: 746px;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+#ch{
+    width: 1.2rem;
+    height: 1.2rem;
+    justify-self: center;
+}
+.day-time{
+    display: grid;
+    max-width: 896px;
+    grid-template-columns: minmax(40px, 90px) 1fr auto;
+    align-items: center;
+    color: var(--sec);
+    border: 1px solid white;
+    gap: 0.5rem;
+    padding: 8px 16px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+@media (max-width: 354px) {
+  .day-time {
+    grid-template-columns: minmax(40px, 70px) 1fr auto;
+    padding: 6px 4px;
+    gap: 0.3rem;
+    font-size: 0.8em;
+  }
+  .day-time p {
+    font-size: 0.65rem;
+    line-height: 1.3;
+  }
+  .enter {
+    max-width: 95vw;
+    width: 100%;
+    font-size: 0.8rem;
+    padding: 0.2rem;
+  }
+}
 @media (min-width:600px) {
     .allElem{
         grid-template-columns: repeat(2,1fr);
@@ -278,6 +332,13 @@ nav{
     }
     .pending{
         border-right: 1px solid rgba(255, 255, 255, 0.5);
+    }
+    .day-time{
+        gap: 1.2rem;
+    }
+    .enter{
+        font-size: 1.1rem;
+        font-weight: bold;
     }
 }
 @media (min-width:900px) {

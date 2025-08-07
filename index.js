@@ -226,7 +226,7 @@ time()
 
 function weatime(){
     var city = "Delhi, India";
-
+    var apikey = '28655b9f143f4e0593e72315250708'
 
     var data = null
     var h2 = document.querySelector('.wea h2')
@@ -237,7 +237,7 @@ function weatime(){
     var humi = document.querySelector('.humi')
     var heat = document.querySelector('.heat')
     async function weather() {
-        var res = await fetch(`http://api.weatherapi.com/v1//current.json?key=${WEATHER_API_KEY}&q=${city}`)
+        var res = await fetch(`http://api.weatherapi.com/v1//current.json?key=${apikey}&q=${city}`)
         data = await res.json()
         console.log(data.current);
         temph2.innerHTML = `${data.current.temp_c}°C`

@@ -23,6 +23,22 @@
         </div>
     </nav>
     <div id="main">
+        <section class="main-bar">
+            <div class="mainb">
+                <div class="wea">
+                    <h5></h5>
+                    <h2></h2>
+                    <h4>Delhi, India</h4>
+                </div>
+                <div class="temp">
+                    <h4>31.2C</h4>
+                    <h4>Light rain shower</h4>
+                    <h4>HeatIndex:34.7%</h4>
+                    <h4>Humnidity:54%</h4>
+                    <h4>Wind:13.3Km/hr</h4>
+                </div>
+            </div>
+        </section>
         <section class="allElem">
             <div class="todo" id="0">
                 <img src="./img/todo.jpg" alt="todo">
@@ -43,11 +59,6 @@
                 <img src="./img/timer.jpg" alt="por">
                 <h4>Pomodoro Timer</h4>
                 <p>Focus better with timed work sessions</p>
-            </div>
-            <div class="todo" id="4">
-                <img src="./img/goal.jpg" alt="goal">
-                <h4>Goal Tracker</h4>
-                <p>Track and achieve your long-term goal</p>
             </div>
         </section>
         <section class="fullElem todolist">
@@ -81,42 +92,54 @@
                 <h1>Daily Planner</h1> 
                 <p>Plan your day accordingly</p> 
             </div>
-            <div class="day-palnner">
-                <div class="day-time">
-                    <p>6:00 AM - 7:00AM</p>
-                    <input type="text" placeholder="Plan your next goal here" class="enter">
-                    <input type="checkbox" id="ch">
-                </div>
-                <div class="day-time">
-                    <p>7:00 AM - 8:00AM</p>
-                    <input type="text" placeholder="Plan your next goal here" class="enter">
-                    <input type="checkbox" id="ch">
-                </div>
-            </div>
+            <div class="day-palnner"></div>
         </section>
-        <section class="fullElem">
+        <section class="fullElem moti">
             <button class="back" id="2"><i class="ri-arrow-left-line"></i>Close</button>
             <div class="head">
                 <div class="quote">❝</div>
                 <h1>Daily Inspiration</h1> 
                 <p>Discover powerful quotes that inspire, motivate, and transform your mindset</p> 
             </div>
-        </section>
-        <section class="fullElem">
-            <button class="back" id="3"><i class="ri-arrow-left-line"></i>Close</button>
-            <div class="head">
-                <h1>Task Manager</h1> 
-                <p>Stay organized and productive</p> 
+            <div class="boxx">
+                <p class="up">❝</p>
+                <div class="p">Be yourself, everyone else is already taken.</div>
+                <p class="down">❞</p>
+                <div class="nam">- Oscar Wilde </div>
             </div>
+            <div class="new"><i class="ri-loop-left-line"></i><h4>New Quote</h4></div>
         </section>
-        <section class="fullElem">
-            <button class="back" id="4"><i class="ri-arrow-left-line"></i>Close</button>
-            <div class="head">
-                <h1>Task Manager</h1> 
-                <p>Stay organized and productive</p> 
+        <section class="fullElem clock">
+            <button class="back" id="3"><i class="ri-arrow-left-line"></i>Close</button>
+            <div class="front">
+                <div class="icons">
+                    <i class="ri-suitcase-line suit"></i>
+                    <i class="ri-drinks-line coffee" style="display: none;"></i>
+                </div>
+                <div class="focus">Focus</div>
+            </div>
+            <div class="time">
+                <div class="one">25:00</div>
+                <div class="two" style="display: none;">5:00</div>
+                <div class="three" style="display: none;">15:00</div>
+            </div>
+            <div class="start">
+                <div class="st">Start</div>
+                <div class="pt">Pause</div>
+                <div class="re">Reset</div>
+            </div>
+            <div class="com">
+                <div class="wo">Work</div>
+                <div class="sb">Short Break</div>
+                <div class="lb">Long Break</div>
             </div>
         </section>
     </div>
+    <footer>
+        <div class="pro1">Productivity Dashboard</div>
+        <div class="pro2">Built with ❤️ by Abhishek Sarkar</div>
+        <div class="pro3">©️ 2025 Abhishek Sarkar</div>
+    </footer>
     <script src="index.js"></script>
 </body>
 </html>

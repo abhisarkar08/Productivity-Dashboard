@@ -2,6 +2,11 @@
 
 A feature-rich productivity dashboard ⚡️ with live weather 🌦️, real-time clock 🕒, to-do list ✅, planner 🗓️, motivational quotes 💡, and a Pomodoro timer 🍅—everything you need for a focused, organized day!
 
+## Screenshots
+
+![Dashboard Screenshot](img/ss.png)
+
+
 ## ✨ Features
 - 🌗 Dark/Light theme toggle
 - 🌦️ Live weather updates (API-based)

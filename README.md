@@ -16,7 +16,6 @@ A feature-rich productivity dashboard ⚡️ with live weather 🌦️, real-tim
 1. Clone the repository  
 git clone https://github.com/your-username/productivity-dashboard.git
 
-text
 2. Open `index.html` in your browser.
 
 > ℹ️ For weather, add your API key in the JS file if needed.

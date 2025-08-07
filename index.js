@@ -279,81 +279,70 @@ function weatime(){
 }
 weatime()
 
-// var root = document.documentElement;
-// root.style.setProperty('--pri','#FFFBDE')
-// root.style.setProperty('--ggray','70, 130, 169')
-// // Root ke --black ki value le kar --sec me daal do
-// var blackValue = getComputedStyle(root).getPropertyValue('--black').trim();
-// root.style.setProperty('--sec', blackValue);
+function dark(){
+    var theme = document.querySelector('.theme');
+    var isThemeActive = false;
 
-// // .allElem element select karo
-// var allElem = document.querySelector('.allElem');
-// var mainb = document.querySelector('.mainb');
-// var box = document.querySelector('.boxx')
-// var theme = document.querySelector('.theme')
-// var newaa = document.querySelector('.new')
-// var quote = document.querySelector('.quote')
+    theme.addEventListener('click', () => {
+    isThemeActive = !isThemeActive;  // Toggle flag on each click
+    console.log('Theme toggled:', isThemeActive);
 
-// // .allElem me apni original --sec ki value set karo (jo chahiye waisi)
-// var originalSecValue = '#ffff';
-// var origin = '#FFFBDE';
-// allElem.style.setProperty('--sec', originalSecValue);
-// mainb.style.setProperty('--sec', originalSecValue);
-// box.style.setProperty('--sec', originalSecValue);
-// newaa.style.setProperty('--sec', originalSecValue);
-// theme.style.setProperty('--sec', origin);
-// quote.style.setProperty('--sec', origin);
-// box.style.boxShadow = `0 4px 10px var(--black)`;
-// document.querySelectorAll('.back').forEach(backBtn => {
-//     backBtn.style.setProperty('--sec', originalSecValue);
-// });
+    if (isThemeActive) {
+        var root = document.documentElement;
+        root.style.setProperty('--pri','#FFFBDE')
+        root.style.setProperty('--ggray','70, 130, 169')
+        // Root ke --black ki value le kar --sec me daal do
+        var blackValue = getComputedStyle(root).getPropertyValue('--black').trim();
+        root.style.setProperty('--sec', blackValue);
 
-var theme = document.querySelector('.theme');
-var isThemeActive = false;
+        // .allElem element select karo
+        var allElem = document.querySelector('.allElem');
+        var mainb = document.querySelector('.mainb');
+        var box = document.querySelector('.boxx')
+        var theme = document.querySelector('.theme')
+        var newaa = document.querySelector('.new')
+        var quote = document.querySelector('.quote')
 
-theme.addEventListener('click', () => {
-  isThemeActive = !isThemeActive;  // Toggle flag on each click
-  console.log('Theme toggled:', isThemeActive);
+        // .allElem me apni original --sec ki value set karo (jo chahiye waisi)
+        var originalSecValue = '#ffff';
+        var origin = '#FFFBDE';
+        allElem.style.setProperty('--sec', originalSecValue);
+        mainb.style.setProperty('--sec', originalSecValue);
+        box.style.setProperty('--sec', originalSecValue);
+        newaa.style.setProperty('--sec', originalSecValue);
+        theme.style.setProperty('--sec', origin);
+        quote.style.setProperty('--sec', origin);
+        box.style.boxShadow = `0 4px 10px var(--black)`;
+        document.querySelectorAll('.back').forEach(backBtn => {
+            backBtn.style.setProperty('--sec', originalSecValue);
+        });
+    } else {
+        var root = document.documentElement;
+        root.style.removeProperty('--pri');
+        root.style.removeProperty('--ggray');
+        root.style.removeProperty('--sec');
+        
+        var allElem = document.querySelector('.allElem');
+        var mainb = document.querySelector('.mainb');
+        var box = document.querySelector('.boxx');
+        var theme = document.querySelector('.theme');
+        var newaa = document.querySelector('.new');
+        var quote = document.querySelector('.quote');
 
-  if (isThemeActive) {
-    // Theme ON: Example variable set
-    document.documentElement.style.setProperty('--pri', '#FFFBDE');
-    document.documentElement.style.setProperty('--ggray', '70, 130, 169');
+        allElem.style.removeProperty('--sec');
+        mainb.style.removeProperty('--sec');
+        box.style.removeProperty('--sec');
+        newaa.style.removeProperty('--sec');
+        theme.style.removeProperty('--sec');
+        quote.style.removeProperty('--sec');
+        box.style.boxShadow = ''; // remove inline boxShadow, use CSS ka default
 
-    // Aapke elements ke CSS variables set karo
-    document.querySelector('.allElem').style.setProperty('--sec', '#ffff');
-    document.querySelector('.mainb').style.setProperty('--sec', '#ffff');
-    document.querySelector('.boxx').style.setProperty('--sec', '#ffff');
-    document.querySelector('.new').style.setProperty('--sec', '#ffff');
-    document.querySelector('.theme').style.setProperty('--sec', '#FFFBDE');
-    document.querySelector('.quote').style.setProperty('--sec', '#FFFBDE');
-
-    document.querySelector('.boxx').style.boxShadow = '0 4px 10px var(--black)';
-
-    document.querySelectorAll('.back').forEach(backBtn => {
-      backBtn.style.setProperty('--sec', '#ffff');
+        document.querySelectorAll('.back').forEach(backBtn => {
+            backBtn.style.removeProperty('--sec');
+        });
+    }
     });
-  } else {
-    // Theme OFF: Variables clear kar do (reset)
-
-    document.documentElement.style.removeProperty('--pri');
-    document.documentElement.style.removeProperty('--ggray');
-
-    // Reset elements ke variables (agar CSS me default defined hai to wo aa jayega)
-    document.querySelector('.allElem').style.removeProperty('--sec');
-    document.querySelector('.mainb').style.removeProperty('--sec');
-    document.querySelector('.boxx').style.removeProperty('--sec');
-    document.querySelector('.new').style.removeProperty('--sec');
-    document.querySelector('.theme').style.removeProperty('--sec');
-    document.querySelector('.quote').style.removeProperty('--sec');
-
-    document.querySelector('.boxx').style.removeProperty('box-shadow');
-
-    document.querySelectorAll('.back').forEach(backBtn => {
-      backBtn.style.removeProperty('--sec');
-    });
-  }
-});
-
+}
+dark()
 
 

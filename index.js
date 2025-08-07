@@ -224,43 +224,136 @@ function time(){
 }
 time()
 
-const apikey = '28655b9f143f4e0593e72315250708';
-var city ='Delhi'
+function weatime(){
+    const apikey = '28655b9f143f4e0593e72315250708';
+    var city = "Delhi, India";
 
 
-var data = null
-var h2 = document.querySelector('.wea h2')
-var h5 = document.querySelector('.wea h5')
-async function weather() {
-    var res = await fetch(`http://api.weatherapi.com/v1//current.json?key=${apikey}&q=${city}`)
-    var data = await res.json()
-}
-weather()
-
-var date = null
-function timedate(){
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    const totalDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
-    date = new Date()
-    var dayOfWeek = totalDaysOfWeek[date.getDay()]
-    var hours = date.getHours()
-    var minutes = date.getMinutes().toString().padStart(2, '0')
-    var sec = date.getSeconds().toString().padStart(2, '0')
-    var datea = date.getDate()
-    var month = monthNames[date.getMonth()]
-    var year = date.getFullYear()
-
-    h5.innerHTML = `${datea} ${month} ${year}`
-        
-    if(hours>12){
-        h2.innerHTML = `${dayOfWeek}, ${hours-12}:${minutes}:${sec}PM`
+    var data = null
+    var h2 = document.querySelector('.wea h2')
+    var h5 = document.querySelector('.wea h5')
+    var temph2 = document.querySelector('.temp h2')
+    var temph4 = document.querySelector('.temp h4')
+    var wind = document.querySelector('.wind')
+    var humi = document.querySelector('.humi')
+    var heat = document.querySelector('.heat')
+    async function weather() {
+        var res = await fetch(`http://api.weatherapi.com/v1//current.json?key=${apikey}&q=${city}`)
+        data = await res.json()
+        console.log(data.current);
+        temph2.innerHTML = `${data.current.temp_c}°C`
+        temph4.innerHTML = `${data.current.condition.text}`
+        wind.innerHTML = `Wind: ${data.current.wind_kph}Km/hr`
+        humi.innerHTML = `Humnidity: ${data.current.humidity}%`
+        heat.innerHTML = `HeatIndex: ${data.current.heatindex_c}%`
     }
-    else{
-        h2.innerHTML = `${dayOfWeek}, ${hours}:${minutes}:${sec}AM`
+    weather()
+
+    var date = null
+    function timedate(){
+        const monthNames = [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+        ];
+        const totalDaysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+        date = new Date()
+        var dayOfWeek = totalDaysOfWeek[date.getDay()]
+        var hours = date.getHours()
+        var minutes = date.getMinutes().toString().padStart(2, '0')
+        var sec = date.getSeconds().toString().padStart(2, '0')
+        var datea = date.getDate()
+        var month = monthNames[date.getMonth()]
+        var year = date.getFullYear()
+
+        h5.innerHTML = `${datea} ${month} ${year}`
+            
+        if(hours>12){
+            h2.innerHTML = `${dayOfWeek}, ${hours-12}:${minutes}:${sec}PM`
+        }
+        else{
+            h2.innerHTML = `${dayOfWeek}, ${hours}:${minutes}:${sec}AM`
+        }
     }
+    timedate()
+    setInterval(timedate, 1000)
 }
-timedate()
-setInterval(timedate, 1000)
+weatime()
+
+// var root = document.documentElement;
+// root.style.setProperty('--pri','#FFFBDE')
+// root.style.setProperty('--ggray','70, 130, 169')
+// // Root ke --black ki value le kar --sec me daal do
+// var blackValue = getComputedStyle(root).getPropertyValue('--black').trim();
+// root.style.setProperty('--sec', blackValue);
+
+// // .allElem element select karo
+// var allElem = document.querySelector('.allElem');
+// var mainb = document.querySelector('.mainb');
+// var box = document.querySelector('.boxx')
+// var theme = document.querySelector('.theme')
+// var newaa = document.querySelector('.new')
+// var quote = document.querySelector('.quote')
+
+// // .allElem me apni original --sec ki value set karo (jo chahiye waisi)
+// var originalSecValue = '#ffff';
+// var origin = '#FFFBDE';
+// allElem.style.setProperty('--sec', originalSecValue);
+// mainb.style.setProperty('--sec', originalSecValue);
+// box.style.setProperty('--sec', originalSecValue);
+// newaa.style.setProperty('--sec', originalSecValue);
+// theme.style.setProperty('--sec', origin);
+// quote.style.setProperty('--sec', origin);
+// box.style.boxShadow = `0 4px 10px var(--black)`;
+// document.querySelectorAll('.back').forEach(backBtn => {
+//     backBtn.style.setProperty('--sec', originalSecValue);
+// });
+
+var theme = document.querySelector('.theme');
+var isThemeActive = false;
+
+theme.addEventListener('click', () => {
+  isThemeActive = !isThemeActive;  // Toggle flag on each click
+  console.log('Theme toggled:', isThemeActive);
+
+  if (isThemeActive) {
+    // Theme ON: Example variable set
+    document.documentElement.style.setProperty('--pri', '#FFFBDE');
+    document.documentElement.style.setProperty('--ggray', '70, 130, 169');
+
+    // Aapke elements ke CSS variables set karo
+    document.querySelector('.allElem').style.setProperty('--sec', '#ffff');
+    document.querySelector('.mainb').style.setProperty('--sec', '#ffff');
+    document.querySelector('.boxx').style.setProperty('--sec', '#ffff');
+    document.querySelector('.new').style.setProperty('--sec', '#ffff');
+    document.querySelector('.theme').style.setProperty('--sec', '#FFFBDE');
+    document.querySelector('.quote').style.setProperty('--sec', '#FFFBDE');
+
+    document.querySelector('.boxx').style.boxShadow = '0 4px 10px var(--black)';
+
+    document.querySelectorAll('.back').forEach(backBtn => {
+      backBtn.style.setProperty('--sec', '#ffff');
+    });
+  } else {
+    // Theme OFF: Variables clear kar do (reset)
+
+    document.documentElement.style.removeProperty('--pri');
+    document.documentElement.style.removeProperty('--ggray');
+
+    // Reset elements ke variables (agar CSS me default defined hai to wo aa jayega)
+    document.querySelector('.allElem').style.removeProperty('--sec');
+    document.querySelector('.mainb').style.removeProperty('--sec');
+    document.querySelector('.boxx').style.removeProperty('--sec');
+    document.querySelector('.new').style.removeProperty('--sec');
+    document.querySelector('.theme').style.removeProperty('--sec');
+    document.querySelector('.quote').style.removeProperty('--sec');
+
+    document.querySelector('.boxx').style.removeProperty('box-shadow');
+
+    document.querySelectorAll('.back').forEach(backBtn => {
+      backBtn.style.removeProperty('--sec');
+    });
+  }
+});
+
+
+

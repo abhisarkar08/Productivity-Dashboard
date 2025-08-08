@@ -226,7 +226,7 @@ time()
 
 function weatime(){
     var city = "Delhi, India";
-    var apikey = '28655b9f143f4e0593e72315250708'
+    var apikey = '123'
 
     var data = null
     var h2 = document.querySelector('.wea h2')
